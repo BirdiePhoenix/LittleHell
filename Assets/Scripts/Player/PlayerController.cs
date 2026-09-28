@@ -36,7 +36,7 @@ public class PlayerController : MonoBehaviour
     private void MovePlayer()
     {
         moveInput = playerInputActions.Player.Movement.ReadValue<Vector2>();
-        rb.linearVelocity = new Vector2(moveInput.x * playerSetup.MovementSpeed, moveInput.y * playerSetup.MovementSpeed);
+        rb.linearVelocity = new Vector2(moveInput.x * playerSetup.CurrentMovementSpeed, moveInput.y * playerSetup.CurrentMovementSpeed);
 
         if (moveInput.x != 0 || moveInput.y != 0)
         {

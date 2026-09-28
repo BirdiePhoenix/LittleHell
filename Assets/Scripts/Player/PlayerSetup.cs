@@ -6,16 +6,18 @@ public class PlayerSetup : MonoBehaviour
     [SerializeField] private SO_Stats playerStats;
 
     private int currentHealth;
-    private float movementSpeed;
-    private int strength;
-    private float attackSpeed;
+    private float currentMovementSpeed;
+    private int currentStrength;
+    private float currentAttackSpeed;
+    private float currentAttackRange;
 
     private void Start()
     {
         currentHealth = playerStats.MaxHealth;
-        movementSpeed = playerStats.MovementSpeed;
-        strength = playerStats.Strength;
-        attackSpeed = playerStats.AttackSpeed;
+        currentMovementSpeed = playerStats.MovementSpeed;
+        currentStrength = playerStats.Strength;
+        currentAttackSpeed = playerStats.AttackSpeed;
+        currentAttackRange = playerStats.AttackRange;
     }
     
     public int CurrentHealth
@@ -23,19 +25,19 @@ public class PlayerSetup : MonoBehaviour
         get {return currentHealth;}
         set {currentHealth = value;}
     }
-    public float MovementSpeed
+    public float CurrentMovementSpeed
     {
-        get {return movementSpeed;}
-        set {movementSpeed = value;}
+        get {return currentMovementSpeed;}
+        set {currentMovementSpeed = value;}
     }
-    public int Strength
+    public int CurrentStrength
     {
-        get {return strength;}
-        set {strength = value;}
+        get {return currentStrength;}
+        set {currentStrength = value;}
     }
-    public float AttackSpeed
+    public float CurrentAttackSpeed
     {
-        get {return attackSpeed;}
-        set {attackSpeed = value;}
+        get {return currentAttackSpeed;}
+        set {currentAttackSpeed = value;}
     }
 }
