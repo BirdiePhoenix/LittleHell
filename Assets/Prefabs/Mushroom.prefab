@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5725949126169912570}
   - component: {fileID: 5728616482876557976}
   - component: {fileID: 1045303493069564899}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Mushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,10 +123,10 @@ CapsuleCollider2D:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
