@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class PlayerMovementState : MonoBehaviour
+public class MovementState : MonoBehaviour
 {
     public enum MoveState
     {
@@ -22,7 +22,7 @@ public class PlayerMovementState : MonoBehaviour
     private const string AttackAnim = "Attack";
     private const string DamageAnim = "Damage";
     private const string DieAnim = "Die";
-    public static Action<MoveState> OnPlayerMoveStateChange;
+    public static Action<MoveState> OnMoveStateChange;
     private float xPosLastFrame;
     private float yPosLastFrame;
     
@@ -52,7 +52,7 @@ public class PlayerMovementState : MonoBehaviour
                 break;
         }
         
-        OnPlayerMoveStateChange?.Invoke(moveState);
+        OnMoveStateChange?.Invoke(moveState);
         CurrentMoveState = moveState;
     }
 

@@ -7,6 +7,7 @@ public class SO_Stats : ScriptableObject
     [SerializeField] private float movementSpeed;
     [SerializeField] private int strength;
     [SerializeField] private float attackSpeed;
+    [SerializeField] private float attackRange;
     
     public int MaxHealth
     {
@@ -23,5 +24,10 @@ public class SO_Stats : ScriptableObject
     public float AttackSpeed
     {
         get { return attackSpeed; }
+    }
+
+    public float AttackRange
+    {
+        get { return attackRange; }
     }
 }

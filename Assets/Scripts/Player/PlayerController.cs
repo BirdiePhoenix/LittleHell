@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnimator;
 
     [SerializeField] private PlayerSetup playerSetup;
-    [SerializeField] private PlayerMovementState movementState;
+    [SerializeField] private MovementState movementState;
     private void Awake()
     {
         playerInputActions = new PlayerInputActions();
@@ -41,7 +41,7 @@ public class PlayerController : MonoBehaviour
         if (moveInput.x != 0 || moveInput.y != 0)
         {
             //playerAnimator.SetBool("isRunning", true);
-            movementState.SetMoveState(PlayerMovementState.MoveState.Run);
+            movementState.SetMoveState(MovementState.MoveState.Run);
             
             if (moveInput.x > 0)
             {
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            movementState.SetMoveState(PlayerMovementState.MoveState.Idle);
+            movementState.SetMoveState(MovementState.MoveState.Idle);
             //playerAnimator.SetBool("isRunning", false);
         } 
     }
