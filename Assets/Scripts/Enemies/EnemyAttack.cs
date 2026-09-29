@@ -46,8 +46,15 @@ public class EnemyAttack : MonoBehaviour
 
     private IEnumerator Attack()
     {
+        //yield return new WaitForSeconds(1);
+        moveState.SetMoveState(MovementState.MoveState.Idle);
         yield return new WaitForSeconds(enemySetup.CurrentAttackSpeed);
         moveState.SetMoveState(MovementState.MoveState.Attack);
         playerHealth.TakeDamage(enemySetup.CurrentStrength);
+
+        if (enemySetup.IsInRange)
+        {
+            StartCoroutine(Attack());
+        }
     }
 }
