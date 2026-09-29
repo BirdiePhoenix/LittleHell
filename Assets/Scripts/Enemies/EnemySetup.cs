@@ -1,24 +1,27 @@
-using System;
 using UnityEngine;
 
-public class PlayerSetup : MonoBehaviour
+public class EnemySetup : MonoBehaviour
 {
-    [SerializeField] private SO_Stats playerStats;
+    [SerializeField] private SO_Stats enemyStats;
 
     private int currentHealth;
     private float currentMovementSpeed;
     private int currentStrength;
     private float currentAttackSpeed;
     private float currentAttackRange;
+    
+    private bool isInRange;
 
     
-    private void Start()
+    private void Awake()
     {
-        currentHealth = playerStats.MaxHealth;
-        currentMovementSpeed = playerStats.MovementSpeed;
-        currentStrength = playerStats.Strength;
-        currentAttackSpeed = playerStats.AttackSpeed;
-        currentAttackRange = playerStats.AttackRange;
+        currentHealth = enemyStats.MaxHealth;
+        currentMovementSpeed = enemyStats.MovementSpeed;
+        currentStrength = enemyStats.Strength;
+        currentAttackSpeed = enemyStats.AttackSpeed;
+        currentAttackRange = enemyStats.AttackRange;
+        
+        IsInRange = false;
     }
     
     public int CurrentHealth
@@ -46,5 +49,10 @@ public class PlayerSetup : MonoBehaviour
     {
         get { return currentAttackRange; }
         set { currentAttackRange = value; }
+    }
+    
+    public bool IsInRange{
+        get {return isInRange;}
+        set {isInRange = value;}
     }
 }

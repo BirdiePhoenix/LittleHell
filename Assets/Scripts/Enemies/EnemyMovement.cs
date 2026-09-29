@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public SO_Stats enemyStats;
+    [SerializeField] private EnemySetup enemySetup;
     [SerializeField] MovementState movementState;
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer spriteRenderer; 
 
     public Rigidbody2D enemyRb;
     private GameObject player;
@@ -14,13 +14,12 @@ public class EnemyMovement : MonoBehaviour
     private Vector2 moveDirection;
     
     private float moveSpeed;
-
+    
     void Start()
     {
         enemyRb = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player");
-        
-        moveSpeed = enemyStats.MovementSpeed; 
+        moveSpeed = enemySetup.CurrentMovementSpeed; 
     }
 
     void FixedUpdate()
@@ -33,20 +32,19 @@ public class EnemyMovement : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
-
         // moveDirection = (player.transform.position - transform.position).normalized;
         // enemyRb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y);
-        distance = Vector2.Distance(player.transform.position, transform.position);
-        Vector2 lookDirection = (player.transform.position - transform.position).normalized;
-        enemyRb.MovePosition(enemyRb.position + lookDirection * moveSpeed * Time.fixedDeltaTime);
-        movementState.SetMoveState(MovementState.MoveState.Run);
+        EnemyMove(enemySetup.IsInRange);
     }
 
-    private void OnCollisionStay2D(Collision2D other)
+    void EnemyMove(bool _isInRange)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (!_isInRange)
         {
-            
+            distance = Vector2.Distance(player.transform.position, transform.position);
+            Vector2 lookDirection = (player.transform.position - transform.position).normalized;
+            enemyRb.MovePosition(enemyRb.position + lookDirection * moveSpeed * Time.fixedDeltaTime);
+            movementState.SetMoveState(MovementState.MoveState.Run);
         }
     }
 }

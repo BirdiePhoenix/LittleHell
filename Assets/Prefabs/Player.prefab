@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3878750031811197339}
   - component: {fileID: 5359578442914356248}
   - component: {fileID: 447519083949613440}
+  - component: {fileID: 2796662355146620186}
   - component: {fileID: 1381257320476473244}
   - component: {fileID: 2253196805736319458}
   - component: {fileID: 2821544784555690764}
@@ -65,6 +66,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   playerSetup: {fileID: 5359578442914356248}
   movementState: {fileID: 1381257320476473244}
+--- !u!114 &2796662355146620186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5912205080420030791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd824cdcff60e2e49a609a736d00884b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
+  playerSetup: {fileID: 5359578442914356248}
+  moveState: {fileID: 1381257320476473244}
 --- !u!114 &1381257320476473244
 MonoBehaviour:
   m_ObjectHideFlags: 0

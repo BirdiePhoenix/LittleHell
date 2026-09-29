@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour, IObserver
+public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private PlayerSetup playerSetup;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private MovementState moveState;
 
-    private void TakeDamage(int damage)
+    public void TakeDamage(int damage)
     {
         playerSetup.CurrentHealth -= damage;
-    }
-
-    public void OnNotify()
-    {
-        
+        if (playerSetup.CurrentHealth > 0)
+        {
+            moveState.SetMoveState(MovementState.MoveState.Damage);
+        }
+        Debug.Log("Hit");
     }
 }
