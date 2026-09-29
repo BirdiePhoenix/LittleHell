@@ -307,6 +307,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   enemyStats: {fileID: 11400000, guid: 8630714c5e8d99e4fa7b86bbe1e9de53, type: 2}
   movementState: {fileID: 684427828}
+  spriteRenderer: {fileID: 2609194304657525111}
   enemyRb: {fileID: 684427823}
   stoppingDistance: 0
 --- !u!1 &755959867
@@ -736,6 +737,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5728616482876557976, guid: 356d121e94e053349ae18a2cb2a5a479, type: 3}
+      propertyPath: m_Constraints
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 6031040862859216714, guid: 356d121e94e053349ae18a2cb2a5a479, type: 3}
       propertyPath: m_Name
       value: Mushroom
@@ -748,6 +753,11 @@ PrefabInstance:
       insertIndex: 2
       addedObject: {fileID: 684427829}
   m_SourcePrefab: {fileID: 100100000, guid: 356d121e94e053349ae18a2cb2a5a479, type: 3}
+--- !u!212 &2609194304657525111 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 4416949444047930474, guid: 356d121e94e053349ae18a2cb2a5a479, type: 3}
+  m_PrefabInstance: {fileID: 2609194304657525110}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

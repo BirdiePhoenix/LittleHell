@@ -11,6 +11,7 @@ public class PlayerSetup : MonoBehaviour
     private float currentAttackSpeed;
     private float currentAttackRange;
 
+    
     private void Start()
     {
         currentHealth = playerStats.MaxHealth;

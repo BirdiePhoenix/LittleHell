@@ -1,9 +1,11 @@
+using System;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
     public SO_Stats enemyStats;
     [SerializeField] MovementState movementState;
+    [SerializeField] private SpriteRenderer spriteRenderer;
 
     public Rigidbody2D enemyRb;
     private GameObject player;
@@ -21,12 +23,30 @@ public class EnemyMovement : MonoBehaviour
         moveSpeed = enemyStats.MovementSpeed; 
     }
 
-    void Update()
+    void FixedUpdate()
     {
+        if (player.transform.position.x > transform.position.x)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else
+        {
+            spriteRenderer.flipX = true;
+        }
+
+        // moveDirection = (player.transform.position - transform.position).normalized;
+        // enemyRb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y);
         distance = Vector2.Distance(player.transform.position, transform.position);
         Vector2 lookDirection = (player.transform.position - transform.position).normalized;
-        
-        movementState.SetMoveState(MovementState.MoveState.Run);
         enemyRb.MovePosition(enemyRb.position + lookDirection * moveSpeed * Time.fixedDeltaTime);
+        movementState.SetMoveState(MovementState.MoveState.Run);
+    }
+
+    private void OnCollisionStay2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("Player"))
+        {
+            
+        }
     }
 }
