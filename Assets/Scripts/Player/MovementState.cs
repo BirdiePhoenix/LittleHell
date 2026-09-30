@@ -73,7 +73,7 @@ public class MovementState : MonoBehaviour
 
     private void HandleDamage()
     {
-        animator.Play(DamageAnim);
+        animator.SetTrigger("Damage");
     }
 
     private void HandleDie()

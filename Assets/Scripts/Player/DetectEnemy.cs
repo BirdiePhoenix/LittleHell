@@ -1,17 +1,20 @@
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class DetectEnemy : MonoBehaviour
 {
     [SerializeField] private PlayerAttack playerAttack;
     [SerializeField] private PlayerSetup playerSetup;
+    
+
+    
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
         {
-            Debug.Log("Enemy");
-            //enemySetup.IsInRange = true;
-            //enemyAttack.TriggerAttack();
+            playerAttack.AddEnemyToList(other.gameObject);
         }
     }
     
@@ -19,6 +22,7 @@ public class DetectEnemy : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            playerAttack.RemoveEnemyFromList(other.gameObject);
             //enemySetup.IsInRange = false;
         }
     }
