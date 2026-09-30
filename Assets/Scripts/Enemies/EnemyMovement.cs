@@ -1,10 +1,11 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private EnemySetup enemySetup;
-    [SerializeField] private MovementState movementState;
+    [FormerlySerializedAs("movementState")] [SerializeField] private EnemyMovementState enemyMovementState;
     [SerializeField] private SpriteRenderer spriteRenderer; 
 
     public Rigidbody2D enemyRb;
@@ -42,11 +43,11 @@ public class EnemyMovement : MonoBehaviour
             distance = Vector2.Distance(player.transform.position, transform.position);
             Vector2 lookDirection = (player.transform.position - transform.position).normalized;
             enemyRb.MovePosition(enemyRb.position + lookDirection * moveSpeed * Time.fixedDeltaTime);
-            movementState.SetMoveState(MovementState.MoveState.Run);
+            enemyMovementState.SetMoveState(EnemyMovementState.EnemyMoveState.Run);
         }
         else
         {
-            movementState.SetMoveState(MovementState.MoveState.Idle);
+            enemyMovementState.SetMoveState(EnemyMovementState.EnemyMoveState.Idle);
         }
     }
 }

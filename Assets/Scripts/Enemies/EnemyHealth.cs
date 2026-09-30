@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    [SerializeField] private EnemySetup enemySetup;
+    [SerializeField] private EnemyMovementState moveState;
 
-    // Update is called once per frame
-    void Update()
+    public void TakeDamage(int damage)
     {
-        
+        enemySetup.CurrentHealth -= damage;
+        if (enemySetup.CurrentHealth > 0)
+        {
+            moveState.SetMoveState(EnemyMovementState.EnemyMoveState.Damage);
+        }
+        else if (enemySetup.CurrentHealth <= 0)
+        {
+            moveState.SetMoveState(EnemyMovementState.EnemyMoveState.Die);
+            enemySetup.IsDead = true;
+            Debug.Log("Enemy is dead");
+        }
+        Debug.Log("Hit");
     }
 }

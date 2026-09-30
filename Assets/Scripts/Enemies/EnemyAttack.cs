@@ -6,7 +6,7 @@ public class EnemyAttack : MonoBehaviour
 {
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private EnemySetup enemySetup;
-    [SerializeField] private MovementState moveState;
+    [SerializeField] private EnemyMovementState moveState;
     [SerializeField] private Animator animator;
 
     private void Start()
@@ -27,7 +27,7 @@ public class EnemyAttack : MonoBehaviour
 
     private IEnumerator Attack()
     {
-        moveState.SetMoveState(MovementState.MoveState.Attack);
+        moveState.SetMoveState(EnemyMovementState.EnemyMoveState.Attack);
         yield return new WaitForSeconds(enemySetup.CurrentAttackSpeed);
    
         if (enemySetup.IsInRange)

@@ -1,29 +1,38 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private List<GameObject> enemies;
+    private List<EnemyHealth> enemies;
+    [SerializeField] PlayerSetup playerSetup;
+    [SerializeField] PlayerMovementState moveState;
     
     private void Start()
     {
-        enemies = new List<GameObject>();
+        enemies = new List<EnemyHealth>();
     }
 
-    public void AttackEnemies()
+    public void AttackEnemies(EnemyHealth enemyHealth)
     {
-        foreach (GameObject enemy in enemies)
-        {
-            
-        }
+        enemyHealth.TakeDamage(playerSetup.CurrentStrength);
+    }
+    public void TriggerAttack()
+    {
+        StartCoroutine(Attack());
     }
 
-    public void AddEnemyToList(GameObject enemy)
+    private IEnumerator Attack()
+    {
+        moveState.SetPlayerMoveState(PlayerMovementState.PlayerMoveState.Attack);
+        yield return new WaitForSeconds(playerSetup.CurrentAttackSpeed);
+    }
+    public void AddEnemyToList(EnemyHealth enemy)
     {
         enemies.Add(enemy);
     }
 
-    public void RemoveEnemyFromList(GameObject enemy)
+    public void RemoveEnemyFromList(EnemyHealth enemy)
     {
         enemies.Remove(enemy);
     }

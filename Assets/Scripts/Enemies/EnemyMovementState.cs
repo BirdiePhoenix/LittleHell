@@ -1,9 +1,9 @@
 using System;
 using UnityEngine;
 
-public class MovementState : MonoBehaviour
+public class EnemyMovementState : MonoBehaviour
 {
-    public enum MoveState
+    public enum EnemyMoveState
     {
         Idle,
         Run,
@@ -12,7 +12,7 @@ public class MovementState : MonoBehaviour
         Die
     }
     
-    public MoveState CurrentMoveState { get; private set; }
+    public EnemyMoveState CurrentEnemyMoveState { get; private set; }
     
     [SerializeField] private Animator animator;
     [SerializeField] private Rigidbody2D rb;
@@ -22,38 +22,38 @@ public class MovementState : MonoBehaviour
     private const string AttackAnim = "Attack";
     private const string DamageAnim = "Damage";
     private const string DieAnim = "Die";
-    public static Action<MoveState> OnMoveStateChange;
+    public static Action<EnemyMoveState> OnMoveStateChange;
     private float xPosLastFrame;
     private float yPosLastFrame;
     
-    public void SetMoveState(MoveState moveState)
+    public void SetMoveState(EnemyMoveState enemyMoveState)
     {
-        if (moveState == CurrentMoveState) return;
+        if (enemyMoveState == CurrentEnemyMoveState) return;
 
-        switch (moveState)
+        switch (enemyMoveState)
         {
-            case MoveState.Idle:
+            case EnemyMoveState.Idle:
                 HandleIdle();
                 break;
-            case MoveState.Run:
+            case EnemyMoveState.Run:
                 HandleRun();
                 break;
-            case MoveState.Attack:
+            case EnemyMoveState.Attack:
                 HandleAttack();
                 break;
-            case MoveState.Damage:
+            case EnemyMoveState.Damage:
                 HandleDamage();
                 break;
-            case MoveState.Die:
+            case EnemyMoveState.Die:
                 HandleDie();
                 break;
             default:
-                Debug.LogError($"{moveState} is an invalid movement state!");
+                Debug.LogError($"{enemyMoveState} is an invalid movement state!");
                 break;
         }
         
-        OnMoveStateChange?.Invoke(moveState);
-        CurrentMoveState = moveState;
+        OnMoveStateChange?.Invoke(enemyMoveState);
+        CurrentEnemyMoveState = enemyMoveState;
     }
 
     private void HandleIdle()

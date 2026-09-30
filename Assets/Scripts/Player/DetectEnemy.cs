@@ -14,16 +14,18 @@ public class DetectEnemy : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            playerAttack.AddEnemyToList(other.gameObject);
+            playerAttack.TriggerAttack();
+            // EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
+            // playerAttack.AttackEnemies(enemyHealth);
         }
     }
     
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Enemy"))
         {
-            playerAttack.RemoveEnemyFromList(other.gameObject);
-            //enemySetup.IsInRange = false;
+            // EnemyHealth enemyHealth = other.GetComponent<EnemyHealth>();
+            // playerAttack.RemoveEnemyFromList(enemyHealth);
         }
     }
 }

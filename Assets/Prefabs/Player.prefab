@@ -82,8 +82,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 918f0b89d7f76cb49a987fc865b0f2c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DetectEnemy
-  playerAttack: {fileID: 0}
-  playerSetup: {fileID: 0}
+  playerAttack: {fileID: 4121129288916169749}
+  playerSetup: {fileID: 5359578442914356248}
 --- !u!1 &5912205080420030791
 GameObject:
   m_ObjectHideFlags: 0
@@ -96,7 +96,8 @@ GameObject:
   - component: {fileID: 5359578442914356248}
   - component: {fileID: 447519083949613440}
   - component: {fileID: 2796662355146620186}
-  - component: {fileID: 1381257320476473244}
+  - component: {fileID: 5104584800125280703}
+  - component: {fileID: 4121129288916169749}
   - component: {fileID: 2253196805736319458}
   - component: {fileID: 2821544784555690764}
   - component: {fileID: 8179720192517659046}
@@ -150,7 +151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   playerSetup: {fileID: 5359578442914356248}
-  movementState: {fileID: 1381257320476473244}
+  playerMovementState: {fileID: 5104584800125280703}
 --- !u!114 &2796662355146620186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,8 +165,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerHealth
   playerSetup: {fileID: 5359578442914356248}
-  moveState: {fileID: 1381257320476473244}
---- !u!114 &1381257320476473244
+  moveState: {fileID: 5104584800125280703}
+--- !u!114 &5104584800125280703
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -174,11 +175,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 5912205080420030791}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ce422e296c2e0a8488cfca93a5c7c8b7, type: 3}
+  m_Script: {fileID: 11500000, guid: 8db39f4a1f303f24abb4c29e1c5d19c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovementState
   animator: {fileID: 3707798851332834848}
   rb: {fileID: 8179720192517659046}
+--- !u!114 &4121129288916169749
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5912205080420030791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f12a6e6586603854cb8d7bb4e9aaef2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  playerSetup: {fileID: 5359578442914356248}
+  moveState: {fileID: 5104584800125280703}
 --- !u!212 &2253196805736319458
 SpriteRenderer:
   serializedVersion: 3

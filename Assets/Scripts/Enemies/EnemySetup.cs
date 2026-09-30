@@ -11,6 +11,7 @@ public class EnemySetup : MonoBehaviour
     private float currentAttackRange;
     
     private bool isInRange;
+    private bool isDead;
 
     
     private void Awake()
@@ -20,7 +21,7 @@ public class EnemySetup : MonoBehaviour
         currentStrength = enemyStats.Strength;
         currentAttackSpeed = enemyStats.AttackSpeed;
         currentAttackRange = enemyStats.AttackRange;
-        
+        isDead = false;
         IsInRange = false;
     }
     
@@ -49,6 +50,12 @@ public class EnemySetup : MonoBehaviour
     {
         get { return currentAttackRange; }
         set { currentAttackRange = value; }
+    }
+
+    public bool IsDead
+    {
+        get {return isDead;}
+        set {isDead = value;}
     }
     
     public bool IsInRange{
