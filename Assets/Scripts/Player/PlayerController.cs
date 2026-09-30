@@ -43,7 +43,6 @@ public class PlayerController : MonoBehaviour
 
         if (moveInput.x != 0 || moveInput.y != 0)
         {
-            //playerAnimator.SetBool("isRunning", true);
             movementState.SetMoveState(MovementState.MoveState.Run);
             
             if (moveInput.x > 0)
@@ -58,7 +57,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             movementState.SetMoveState(MovementState.MoveState.Idle);
-            //playerAnimator.SetBool("isRunning", false);
         } 
     }
 }

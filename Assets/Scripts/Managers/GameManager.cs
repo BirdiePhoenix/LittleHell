@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
 
     [SerializeField] private Vector2 playerSpawnPos;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     private void Awake()
     {
         SpawnPlayer();

@@ -4,7 +4,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private EnemySetup enemySetup;
-    [SerializeField] MovementState movementState;
+    [SerializeField] private MovementState movementState;
     [SerializeField] private SpriteRenderer spriteRenderer; 
 
     public Rigidbody2D enemyRb;
@@ -32,8 +32,6 @@ public class EnemyMovement : MonoBehaviour
         {
             spriteRenderer.flipX = true;
         }
-        // moveDirection = (player.transform.position - transform.position).normalized;
-        // enemyRb.linearVelocity = new Vector2(moveDirection.x, moveDirection.y);
         EnemyMove(enemySetup.IsInRange);
     }
 

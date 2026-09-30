@@ -9,13 +9,7 @@ public class Timer : MonoBehaviour
     int seconds;
 
     private float time;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        //StartTimer(0.5f);
-    }
-
-    // Update is called once per frame
+    
     void Update()
     {
         time += Time.deltaTime;
