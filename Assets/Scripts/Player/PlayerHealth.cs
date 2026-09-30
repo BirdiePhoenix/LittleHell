@@ -15,6 +15,7 @@ public class PlayerHealth : MonoBehaviour
         else if (playerSetup.CurrentHealth <= 0)
         {
             moveState.SetMoveState(MovementState.MoveState.Die);
+            playerSetup.IsDead = true;
             Debug.Log("Player is dead");
         }
         Debug.Log("Hit");

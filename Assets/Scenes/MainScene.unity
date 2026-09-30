@@ -574,7 +574,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1307870155}
   - component: {fileID: 1307870157}
-  - component: {fileID: 1307870156}
+  - component: {fileID: 1307870158}
   m_Layer: 6
   m_Name: HitBox
   m_TagString: Untagged
@@ -597,21 +597,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2609194304657525116}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1307870156
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307870154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bd67c6dda43f6047a0740547c8db1a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
-  playerHealth: {fileID: 0}
-  enemySetup: {fileID: 2609194304657525117}
-  moveState: {fileID: 684427828}
 --- !u!70 &1307870157
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -649,6 +634,20 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: -0.09}
   m_Size: {x: 0.35, y: 0.7}
   m_Direction: 0
+--- !u!114 &1307870158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1307870154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839168e628602764b923a8ca0b0c84dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DetectPlayer
+  enemyAttack: {fileID: 2609194304657525120}
+  enemySetup: {fileID: 2609194304657525117}
 --- !u!1 &1547268720
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,6 +846,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6031040862859216714, guid: 356d121e94e053349ae18a2cb2a5a479, type: 3}
       insertIndex: 3
       addedObject: {fileID: 684427829}
+    - targetCorrespondingSourceObject: {fileID: 6031040862859216714, guid: 356d121e94e053349ae18a2cb2a5a479, type: 3}
+      insertIndex: 4
+      addedObject: {fileID: 2609194304657525120}
   m_SourcePrefab: {fileID: 100100000, guid: 356d121e94e053349ae18a2cb2a5a479, type: 3}
 --- !u!212 &2609194304657525111 stripped
 SpriteRenderer:
@@ -871,6 +873,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemySetup
   enemyStats: {fileID: 11400000, guid: 8630714c5e8d99e4fa7b86bbe1e9de53, type: 2}
+--- !u!95 &2609194304657525118 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1045303493069564899, guid: 356d121e94e053349ae18a2cb2a5a479, type: 3}
+  m_PrefabInstance: {fileID: 2609194304657525110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2609194304657525120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 684427822}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7bd67c6dda43f6047a0740547c8db1a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAttack
+  playerHealth: {fileID: 0}
+  enemySetup: {fileID: 2609194304657525117}
+  moveState: {fileID: 684427828}
+  animator: {fileID: 2609194304657525118}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class PlayerSetup : MonoBehaviour
     private int currentStrength;
     private float currentAttackSpeed;
     private float currentAttackRange;
+    private bool isDead;
 
     
     private void Start()
@@ -19,6 +20,7 @@ public class PlayerSetup : MonoBehaviour
         currentStrength = playerStats.Strength;
         currentAttackSpeed = playerStats.AttackSpeed;
         currentAttackRange = playerStats.AttackRange;
+        isDead = false;
     }
     
     public int CurrentHealth
@@ -46,5 +48,11 @@ public class PlayerSetup : MonoBehaviour
     {
         get { return currentAttackRange; }
         set { currentAttackRange = value; }
+    }
+
+    public bool IsDead
+    {
+        get {return isDead;}
+        set {isDead = value;}
     }
 }

@@ -68,7 +68,7 @@ public class MovementState : MonoBehaviour
 
     private void HandleAttack()
     {
-        animator.Play(AttackAnim);
+        animator.SetTrigger("Attack");
     }
 
     private void HandleDamage()

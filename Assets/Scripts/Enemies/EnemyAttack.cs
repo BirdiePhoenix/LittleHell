@@ -7,6 +7,7 @@ public class EnemyAttack : MonoBehaviour
     [SerializeField] private PlayerHealth playerHealth;
     [SerializeField] private EnemySetup enemySetup;
     [SerializeField] private MovementState moveState;
+    [SerializeField] private Animator animator;
 
     private void Start()
     {
@@ -24,34 +25,44 @@ public class EnemyAttack : MonoBehaviour
     //     }
     // }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    // private void OnTriggerEnter2D(Collider2D other)
+    // {
+    //     if (other.gameObject.tag == "Player")
+    //     {
+    //         Debug.Log("Player");
+    //         enemySetup.IsInRange = true;
+    //         // playerHealth.TakeDamage(enemySetup.CurrentStrength);
+    //         // moveState.SetMoveState(MovementState.MoveState.Attack);
+    //         StartCoroutine(Attack());
+    //     }
+    // }
+
+    // private void OnTriggerExit2D(Collider2D other)
+    // {
+    //     if (other.gameObject.tag == "Player")
+    //     {
+    //         enemySetup.IsInRange = false;
+    //     }
+    // }
+
+    public void TriggerAttack()
     {
-        if (other.gameObject.tag == "Player")
-        {
-            Debug.Log("Player");
-            enemySetup.IsInRange = true;
-            playerHealth.TakeDamage(enemySetup.CurrentStrength);
-            moveState.SetMoveState(MovementState.MoveState.Attack);
-            StartCoroutine(Attack());
-        }
+        Debug.Log("Player");
+        // playerHealth.TakeDamage(enemySetup.CurrentStrength);
+        // moveState.SetMoveState(MovementState.MoveState.Attack);
+        StartCoroutine(Attack());
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void DamagePlayer()
     {
-        if (other.gameObject.tag == "Player")
-        {
-            enemySetup.IsInRange = false;
-        }
+        playerHealth.TakeDamage(enemySetup.CurrentStrength);
     }
 
     private IEnumerator Attack()
     {
-        //yield return new WaitForSeconds(1);
-        moveState.SetMoveState(MovementState.MoveState.Idle);
-        yield return new WaitForSeconds(enemySetup.CurrentAttackSpeed);
         moveState.SetMoveState(MovementState.MoveState.Attack);
-        playerHealth.TakeDamage(enemySetup.CurrentStrength);
-
+        yield return new WaitForSeconds(enemySetup.CurrentAttackSpeed);
+   
         if (enemySetup.IsInRange)
         {
             StartCoroutine(Attack());

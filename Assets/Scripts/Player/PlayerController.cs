@@ -30,7 +30,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        MovePlayer();
+        if (!playerSetup.IsDead)
+        {
+            MovePlayer();
+        }
     }
 
     private void MovePlayer()

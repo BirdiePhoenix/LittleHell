@@ -46,5 +46,9 @@ public class EnemyMovement : MonoBehaviour
             enemyRb.MovePosition(enemyRb.position + lookDirection * moveSpeed * Time.fixedDeltaTime);
             movementState.SetMoveState(MovementState.MoveState.Run);
         }
+        else
+        {
+            movementState.SetMoveState(MovementState.MoveState.Idle);
+        }
     }
 }
